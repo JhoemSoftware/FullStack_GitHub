@@ -8,9 +8,9 @@ import { Logout } from "./Logout";
 export const Sidebar = () => {
     const authUser = true;
     return (
-        <aside className="flex flex-col items-center min-w-12 sm:w-16 sticky top-0 left-0 h-screen py-8 overflow-y-auto border-r border-emerald-500 bg-glass rounded-none">
+        <aside className="flex flex-col items-center min-w-12 sm:w-16 sticky top-0 left-0 h-screen py-8 overflow-y-auto border-r border-gray-700 bg-glass rounded-none">
             <nav className="h-full flex flex-col items-center gap-3">
-                <Link to='/' className="mb-10">
+                <Link to='/' className="mb-5">
                     {/* <img className="h-8" src="./github.svg" alt="Github Logo" /> */}
                     <AiFillGithub size={30} />
                 </Link>

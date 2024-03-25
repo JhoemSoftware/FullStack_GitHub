@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 export const SignUpPage = () => {
     return (
         <div className="flex items-center justify-center h-screen">
-            <div className="bg-glass border border-emerald-300 rounded-lg p-6 w-7/12 flex flex-col items-center gap-3">
+            <div className="bg-glass border border-gray-500 rounded-lg p-6 w-7/12 flex flex-col items-center gap-3">
                 <h1 className="text-center text-2xl font-bold">Create Account</h1>
-                <button className="bg-[#343d48] w-full py-2 rounded-md flex items-center gap-2 justify-center flex-wrap mt-5 duration-300 hover:bg-[#b1bcc9] hover:text-gray-800">
+                <button className="bg-[#343d48] w-full py-2 rounded-md flex items-center gap-2 justify-center flex-wrap mt-5 duration-300 hover:bg-emerald-500 hover:text-white">
                     <AiFillGithub size={30}/>
                     Sign up with GitHub
                 </button>

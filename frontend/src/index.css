@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    background: linear-gradient(to bottom right, rgba(0,0,0,.9), rgba(0,0,0,.4)), url('./bg.png');
+    background: linear-gradient(to bottom right, rgba(0,0,0,.9), rgba(0,0,0,.4)), url('./bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -29,6 +29,6 @@ body {
 
 @layer components {
     .bg-glass {
-        @apply shadow bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-5 text-white transition-all duration-300 hover:bg-gray-500/10 rounded p-2
+        @apply shadow bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-5 text-white transition-all duration-300 hover:bg-gray-800 rounded p-2
     }
 }

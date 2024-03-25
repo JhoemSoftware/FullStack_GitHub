@@ -2,9 +2,9 @@ import { FaHeart } from "react-icons/fa6";
 
 export const LikesPage = () => {
     return (
-        <div class="w-11/12 mx-auto my-5 relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <div class="w-11/12 mx-auto my-5 relative overflow-x-auto rounded-lg">
+            <table class="w-full text-sm text-left rtl:text-right bg-glass">
+                <thead class="text-xs text-gray-400 uppercase bg-gray-800 border border-gray-800">
                     <tr>
                         <th scope="col" class="px-16 py-3">
                             <span class="sr-only">Image</span>
@@ -21,7 +21,7 @@ export const LikesPage = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <tr className="border-b border-gray-700">
                         <td class="flex justify-center py-2">
                             <img src="jhoemGitHub.jpg" class="w-14 h-14 border rounded-full" alt="Apple Watch"/>
                         </td>
