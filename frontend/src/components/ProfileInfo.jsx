@@ -6,15 +6,15 @@ import { LiaDigitalTachographSolid } from "react-icons/lia";
 import { TfiWorld } from "react-icons/tfi";
 import { MdOutlineWork } from "react-icons/md";
 
-export const ProfileInfo = () => {
-    const userProfile = {
+export const ProfileInfo = ({ userProfile }) => {
+    /* const userProfile = {
         avatar_url: 'https://avatars.githubusercontent.com/u/45051576?v=4',
         username: 'Jhoem Software',
         name: 'Jhon Alex Marín',
-        bio_profile: 'Un Programador 🙂',
+        bio: 'Un Programador 🙂',
         email: 'www.jhonlive90@gmail.com',
         profile_url: 'https://github.com/JhoemSoftware',
-        web_site: 'https://jhoemsoftware.com/',
+        blog: 'https://jhoemsoftware.com/',
         location: 'Medellín 🇨🇴',
         job: 'Jhöëm Software',
         twitter_username: '@JhoemLive',
@@ -23,7 +23,7 @@ export const ProfileInfo = () => {
         following: 37,
         public_gist: 2,
         public_repos: 6
-    }
+    } */
 
     return (
         <div className='lg:w-1/3 w-full flex flex-col gap-2 md:sticky md:top-10'>
@@ -32,7 +32,7 @@ export const ProfileInfo = () => {
                     <img src={userProfile?.avatar_url} className='rounded-2xl border border-gray-700 w-24 h-24 mb-2' alt='Github Avatar' />
                     <div className='flex gap-2 items-center flex-col'>
                         <a
-                            href={userProfile.profile_url}
+                            href={userProfile?.html_url}
                             target='_blank'
                             rel='noreferrer'
                             className='bg-glass font-medium w-full text-xs p-2 rounded-md cursor-pointer border border-blue-400 flex items-center gap-2 hover:bg-emerald-500 hover:border-emerald-500'
@@ -52,13 +52,13 @@ export const ProfileInfo = () => {
 
                 <div className='my-4'>
                     <p className='text-gray-600 font-bold text-sm'>Username</p>
-                    <p className='font-bold text-xl'>{userProfile?.username}</p>
+                    <p className='font-bold text-xl'>{userProfile?.login}</p>
                 </div>
 
-                {userProfile?.bio_profile ? (
+                {userProfile?.bio ? (
                     <div className='flex items-center gap-2'>
                         <RiInformationFill />
-                        <p className='text-sm'>{userProfile?.bio_profile}</p>
+                        <p className='text-sm'>{userProfile?.bio}</p>
                     </div>
                 ) : null}
 
@@ -81,7 +81,7 @@ export const ProfileInfo = () => {
                     </a>
                 ) : null}
 
-                {userProfile?.linkedin_username ? (
+                {/* {userProfile?.linkedin_username ? (
                     <a
                         href={`https://www.linkedin.com/${userProfile.linkedin_username}`}
                         target='_blank'
@@ -91,24 +91,24 @@ export const ProfileInfo = () => {
                         <FaLinkedin />
                         {userProfile?.linkedin_username}
                     </a>
-                ) : null}
+                ) : null} */}
 
-                {userProfile?.web_site ? (
+                {userProfile?.blog ? (
                     <a
-                        href={userProfile.web_site}
+                        href={userProfile.blog}
                         target='_blank'
                         rel='noreferrer'
                         className='flex items-center gap-2 hover:text-sky-500'
                     >
                         <TfiWorld />
-                        {userProfile?.web_site}
+                        {userProfile?.blog}
                     </a>
                 ) : null}
 
-                {userProfile?.job ? (
+                {userProfile?.company ? (
                     <div className='flex items-center gap-2 hover:text-sky-500'>
                         <MdOutlineWork />
-                        {userProfile?.job}
+                        {userProfile?.company}
                     </div>
                 ) : null}
 

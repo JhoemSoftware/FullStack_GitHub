@@ -1,7 +1,19 @@
 import { FaCodeBranch, FaCopy, FaRegStar } from "react-icons/fa";
 import { FaCodeFork } from "react-icons/fa6";
 
-export const Repo = () => {
+const listImages = ['javascript','php','python','c++','c#','css','html','go','java','swift','vue','typescript','shell', 'rust']
+
+export const Repo = ({ name, description, language }) => {
+    if(language === null) language = 'code'
+
+    language = language.toLowerCase();
+
+    console.log(language)
+
+    if(!listImages.includes(language)) language = 'code'
+
+    const imageLang = `./${language}.svg`;
+
     return (
         <li className='mb-10 ms-7'>
             <span
@@ -17,7 +29,7 @@ export const Repo = () => {
                     rel='noreferrer'
                     className='flex items-center gap-2 text-lg font-semibold'
                 >
-                    FullStack_GitHub_LikeAPP
+                    { name }
                 </a>
                 <span
                     className='bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5
@@ -45,12 +57,10 @@ export const Repo = () => {
             >
                 Released on March 24, 2024
             </time>
-            <p className='mb-4 text-base font-normal text-gray-500'>MERN FULL-STACK App with Passport.js for authentication and GitHub API where we can authenticate with GitHub Auth, get GitHub users profile and their repositories</p>
+            <p className='mb-4 text-base font-normal text-gray-500'>{ description }</p>
             <div className="flex">
-                <img src={"/javascript.svg"} alt='Programming language icon' className='h-8' />
-                <img src={"/react.png"} alt='Programming language icon' className='h-8' />
-                <img src={"/nodejs.png"} alt='Programming language icon' className='h-8' />
-                <img src={"/mongo.svg"} alt='Programming language icon' className='h-8' />
+                
+                <img src={imageLang} alt='Programming language icon' className='h-8' />
             </div>
         </li>
     )
