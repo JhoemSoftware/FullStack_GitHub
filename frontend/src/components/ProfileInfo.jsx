@@ -13,7 +13,7 @@ export const ProfileInfo = ({ userProfile }) => {
     return (
         <div className='lg:w-1/3 w-full flex flex-col gap-2 md:sticky md:top-10'>
             <div className='bg-glass rounded-lg p-4'>
-                <div className='flex gap-1 flex-wrap justify-center mb-5'>
+                <div className='flex gap-1 flex-wrap justify-center mb-5 items-center'>
                     <img src={userProfile?.avatar_url} className='rounded-2xl border border-gray-700 mb-2' alt='Github Avatar' />
                     <div>
                         <a
@@ -135,7 +135,7 @@ export const ProfileInfo = ({ userProfile }) => {
                 {/* Number of public gists */}
                 <div className='flex items-center gap-2 bg-colored rounded-lg p-2 flex-1 min-w-24'>
                     <LiaDigitalTachographSolid className='w-5 h-5 text-sky-200' />
-                    <p className='text-xs'>Public gists: {userProfile?.public_gist}</p>
+                    <p className='text-xs'>Public gists: {userProfile?.public_gists}</p>
                 </div>
             </div>
         </div>

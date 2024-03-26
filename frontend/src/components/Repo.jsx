@@ -1,10 +1,21 @@
 import { formatDateMember, validateLanguage } from "../utils/utilities";
 import { FaCodeBranch, FaCopy, FaRegStar, FaEye } from "react-icons/fa";
 import { FaCodeFork } from "react-icons/fa6";
+import { toast } from 'react-hot-toast';
 
 export const Repo = ({ name, html_url, description, language, dateRepo, forks_count, stargazers_count, clone_url, watchers }) => {
     const imageLang = validateLanguage(language)
     dateRepo = formatDateMember(dateRepo);
+
+    const handleCloneRepo = async ( clone_url ) => {
+        console.log(clone_url)
+        try {
+            await navigator.clipboard.writeText(clone_url);
+            toast.success('Repository URL copied success ✅');
+        } catch (error) {
+            toast.success('Repository URL copied failed 🤔', error);
+        }
+    }
 
     return (
         <li className='mb-12 ms-6' key={name}>
@@ -44,10 +55,11 @@ export const Repo = ({ name, html_url, description, language, dateRepo, forks_co
                         <FaEye /> {watchers}
                     </span>
                     <span
+                        onClick={ () => handleCloneRepo(clone_url) }
                         className='cursor-pointer bg-green-100 text-green-800 text-xs
 					font-medium px-2.5 py-0.5 rounded-full flex items-center gap-1'
                     >
-                        <FaCopy /> Clone {/* clone_url */}
+                        <FaCopy /> Copy URL Repository{/* clone_url */}
                     </span>
                 </div>
             </div>
