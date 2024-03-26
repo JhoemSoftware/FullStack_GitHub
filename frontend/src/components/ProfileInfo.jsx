@@ -1,3 +1,4 @@
+import { formatDateMember } from "../utils/utilities";
 import { FaEye } from "react-icons/fa";
 import { RiInformationFill, RiUserFollowFill, RiUserFollowLine } from "react-icons/ri";
 import { FaLocationDot, FaSquareXTwitter, FaLinkedin } from "react-icons/fa6";
@@ -7,23 +8,7 @@ import { TfiWorld } from "react-icons/tfi";
 import { MdOutlineWork } from "react-icons/md";
 
 export const ProfileInfo = ({ userProfile }) => {
-    /* const userProfile = {
-        avatar_url: 'https://avatars.githubusercontent.com/u/45051576?v=4',
-        username: 'Jhoem Software',
-        name: 'Jhon Alex Marín',
-        bio: 'Un Programador 🙂',
-        email: 'www.jhonlive90@gmail.com',
-        profile_url: 'https://github.com/JhoemSoftware',
-        blog: 'https://jhoemsoftware.com/',
-        location: 'Medellín 🇨🇴',
-        job: 'Jhöëm Software',
-        twitter_username: '@JhoemLive',
-        linkedin_username: 'in/jhoemsoftware',
-        followers: 11,
-        following: 37,
-        public_gist: 2,
-        public_repos: 6
-    } */
+    const dateMember = formatDateMember(userProfile?.created_at)
 
     return (
         <div className='lg:w-1/3 w-full flex flex-col gap-2 md:sticky md:top-10'>
@@ -69,19 +54,26 @@ export const ProfileInfo = ({ userProfile }) => {
                     </div>
                 ) : null}
 
-                {userProfile?.twitter_username ? (
-                    <a
-                        href={`https://twitter.com/${userProfile.twitter_username}`}
-                        target='_blank'
-                        rel='noreferrer'
-                        className='flex items-center gap-2 hover:text-sky-500'
-                    >
-                        <FaSquareXTwitter />
-                        {userProfile?.twitter_username}
-                    </a>
-                ) : null}
+                <div className='my-2'>
+                    <p className='text-gray-600 font-bold text-sm'>Member since</p>
+                    <p className=''>{dateMember}</p>
+                </div>
 
-                {/* {userProfile?.linkedin_username ? (
+                <div className='my-2'>
+                    <p className='text-gray-600 font-bold text-sm'>Sites</p>
+                    {userProfile?.twitter_username ? (
+                        <a
+                            href={`https://twitter.com/${userProfile.twitter_username}`}
+                            target='_blank'
+                            rel='noreferrer'
+                            className='flex items-center gap-2 hover:text-sky-500'
+                        >
+                            <FaSquareXTwitter />
+                            {userProfile?.twitter_username}
+                        </a>
+                    ) : null}
+
+                    {/* {userProfile?.linkedin_username ? (
                     <a
                         href={`https://www.linkedin.com/${userProfile.linkedin_username}`}
                         target='_blank'
@@ -93,31 +85,32 @@ export const ProfileInfo = ({ userProfile }) => {
                     </a>
                 ) : null} */}
 
-                {userProfile?.blog ? (
-                    <a
-                        href={userProfile.blog}
-                        target='_blank'
-                        rel='noreferrer'
-                        className='flex items-center gap-2 hover:text-sky-500'
-                    >
-                        <TfiWorld />
-                        {userProfile?.blog}
-                    </a>
-                ) : null}
+                    {userProfile?.blog ? (
+                        <a
+                            href={userProfile.blog}
+                            target='_blank'
+                            rel='noreferrer'
+                            className='flex items-center gap-2 hover:text-sky-500'
+                        >
+                            <TfiWorld />
+                            {userProfile?.blog}
+                        </a>
+                    ) : null}
 
-                {userProfile?.company ? (
-                    <div className='flex items-center gap-2 hover:text-sky-500'>
-                        <MdOutlineWork />
-                        {userProfile?.company}
-                    </div>
-                ) : null}
+                    {userProfile?.company ? (
+                        <div className='flex items-center gap-2 hover:text-sky-500'>
+                            <MdOutlineWork />
+                            {userProfile?.company}
+                        </div>
+                    ) : null}
 
-                {userProfile?.email && (
-                    <div className='my-2'>
-                        <p className='text-gray-600 font-bold text-sm'>Email address</p>
-                        <p className=''>{userProfile.email}</p>
-                    </div>
-                )}
+                    {userProfile?.email && (
+                        <div className='my-2'>
+                            <p className='text-gray-600 font-bold text-sm'>Email address</p>
+                            <p className=''>{userProfile.email}</p>
+                        </div>
+                    )}
+                </div>
             </div>
 
             <div className='flex flex-wrap gap-2 mx-4'>

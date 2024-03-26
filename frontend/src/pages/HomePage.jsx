@@ -11,7 +11,8 @@ export const HomePage = () => {
     const [loading, setLoading] = useState(false);
     const [sortType, setSortType] = useState('recent');
 
-    const getUserProfileRepos = async (username = 'Klerith') => {
+    const getUserProfileRepos = async (username = 'cataru25') => {
+        setLoading(true);
         try {
             const userRes = await fetch(`https://api.github.com/users/${username}`);
             const dataUserProfile = await userRes.json();
@@ -26,6 +27,8 @@ export const HomePage = () => {
 
         } catch (error) {
             toast.error(`I don't get information ${error.message}`);
+        } finally {
+            setLoading(false);
         }
     }
 
