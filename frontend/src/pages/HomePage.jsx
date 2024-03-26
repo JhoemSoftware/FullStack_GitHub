@@ -13,37 +13,46 @@ export const HomePage = () => {
     const [sortType, setSortType] = useState('recent');
 
     const getUserProfileRepos = async (username = 'jhoemsoftware') => { //AzKalashnikov
-        setLoading(true);
         try {
             const userRes = await fetch(`https://api.github.com/users/${username}`);
             const dataUserProfile = await userRes.json();
 
-            await new Promise(resolve => setTimeout(resolve, 1500));
+            await new Promise(resolve => setTimeout(resolve, 1200));
 
-            setUserProfile(dataUserProfile);
-            
             const reposRes = await fetch(dataUserProfile.repos_url);
             const dataReposUser = await reposRes.json();
-            setRepos(dataReposUser);
-            
-            console.log(dataUserProfile);
-            console.log(dataReposUser);
-            toast.success(`Hi 👋🏻 ${dataUserProfile.name}`);
+
+            return { dataUserProfile, dataReposUser }
         } catch (error) {
             toast.error(`I don't get information ${error.message}`);
-        } finally {
-            setLoading(false);
         }
     }
 
     useEffect(() => {
         getUserProfileRepos();
-    }, [])
+    }, []);
 
+    const onSearch = async (e, username) => {
+        e.preventDefault();
+        setLoading(true);
+        setRepos([]);
+        setUserProfile(null);
+
+        const { dataUserProfile, dataReposUser } = await getUserProfileRepos(username);
+
+        // console.log(dataUserProfile);
+        // console.log(dataReposUser);
+
+        toast.success(`Hi 👋🏻 ${dataUserProfile.name}`);
+
+        setUserProfile(dataUserProfile);
+        setRepos(dataReposUser);
+        setLoading(false)
+    }
 
     return (
         <div className="m-4">
-            <Search />
+            <Search onSearch={ onSearch } />
             <SortRepos />
             <div className="flex flex-col gap-4 justify-center items-start lg:flex-row">
                 {
@@ -53,8 +62,8 @@ export const HomePage = () => {
                 {
                     !loading && (
                         <>
-                            <ProfileInfo userProfile={ userProfile } />
-                            <Repos repos={ repos } />
+                            <ProfileInfo userProfile={userProfile} />
+                            <Repos repos={repos} />
                         </>
                     )
                 }
