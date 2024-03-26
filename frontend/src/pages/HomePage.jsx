@@ -12,7 +12,7 @@ export const HomePage = () => {
     const [loading, setLoading] = useState(false);
     const [sortType, setSortType] = useState('recent');
 
-    const getUserProfileRepos = async (username = 'AzKalashnikov') => {
+    const getUserProfileRepos = async (username = 'jhoemsoftware') => {
         setLoading(true);
         try {
             const userRes = await fetch(`https://api.github.com/users/${username}`);

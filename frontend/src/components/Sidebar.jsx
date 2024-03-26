@@ -14,12 +14,12 @@ export const Sidebar = () => {
                     {/* <img className="h-8" src="./github.svg" alt="Github Logo" /> */}
                     <AiFillGithub size={30} />
                 </Link>
-                <Link to='/' className="transition-colors duration-300 py-2  hover:text-emerald-400">
-                    <RiHome2Fill size={20} />
-                </Link>
                 {
                     authUser && (
                         <>
+                            <Link to='/' className="transition-colors duration-300 py-2  hover:text-emerald-400">
+                                <RiHome2Fill size={20} />
+                            </Link>
                             <Link to='/likes' className="transition-colors duration-300 py-2  hover:text-emerald-400">
                                 <FaHeart size={18} />
                             </Link>
