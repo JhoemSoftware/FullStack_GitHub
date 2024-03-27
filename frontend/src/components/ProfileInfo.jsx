@@ -13,8 +13,8 @@ export const ProfileInfo = ({ userProfile }) => {
 
     // TODO: Refactorizar el código para sólo mostrarse si existe información de usuario
     return (
-        <div className='lg:w-1/3 w-full flex flex-col gap-2 md:sticky md:top-10'>
-            <div className='bg-glass rounded-lg p-4'>
+        <div className='lg:w-1/3 w-full flex flex-col gap-2 md:sticky md:top-1'>
+            <div className='bg-glass rounded-lg p-4 md:flex md:items-center md:flex-wrap md:gap-2 md:justify-evenly'>
                 {
                     !userProfile &&
                     <div className="flex flex-col items-center">
@@ -24,8 +24,8 @@ export const ProfileInfo = ({ userProfile }) => {
                 }
                 {
                     userProfile?.avatar_url && (
-                        <div className='flex gap-1 flex-wrap justify-center mb-5 items-center'>
-                            <img src={userProfile?.avatar_url} className='rounded-2xl border border-gray-700 mb-2' alt='Github Avatar' />
+                        <div className='flex gap-1 flex-wrap justify-center mb-3 items-center md:flex-col'>
+                            <img src={userProfile?.avatar_url} className='rounded-2xl w-32 lg:w-56 border border-gray-700 mb-2' alt='Github Avatar' />
                             <div>
                                 <a
                                     href={userProfile?.html_url}
@@ -42,29 +42,29 @@ export const ProfileInfo = ({ userProfile }) => {
                 }
 
                 {userProfile?.name && (
-                    <div className='my-2'>
-                        <p className='text-gray-600 font-bold text-sm'>Full name</p>
-                        <p className='font-bold text-lg'>{userProfile?.name}</p>
+                    <div className='flex items-start flex-col mb-3'>
+                        <p className='text-emerald-400 font-semibold text-sm'>Full name</p>
+                        <p className='font-semibold text-xl'>{userProfile?.name}</p>
                     </div>
                 )}
 
                 {
                     userProfile?.login &&
-                    <div className='my-4'>
-                        <p className='text-gray-600 font-bold text-sm'>Username</p>
-                        <p className='font-bold text-lg'>{userProfile?.login}</p>
+                    <div className='flex items-start flex-col mb-3'>
+                        <p className='text-emerald-400 font-semibold text-sm'>Username</p>
+                        <p className='font-semibold text-xl'>{userProfile?.login}</p>
                     </div>
                 }
 
                 {userProfile?.bio ? (
-                    <div className='flex items-center gap-2'>
+                    <div className='hidden lg:flex gap-1 items-center mx-auto'>
                         <RiInformationFill />
                         <p className="font-normal text-sm">{userProfile?.bio}</p>
                     </div>
                 ) : null}
 
                 {userProfile?.location ? (
-                    <div className='flex items-center gap-2 mb-5'>
+                    <div className='hidden lg:flex gap-1 items-center mx-auto'>
                         <FaLocationDot />
                         <p className="font-normal text-sm">{userProfile?.location}</p>
                     </div>
@@ -73,13 +73,13 @@ export const ProfileInfo = ({ userProfile }) => {
                 {
                     userProfile && (
                         <>
-                            <div className='my-2'>
-                                <p className='text-gray-600 font-bold text-sm'>Member since</p>
+                            <div className='hidden lg:flex gap-1 items-center mx-auto'>
+                                <p className='text-emerald-400 font-semibold text-sm'>Member since</p>
                                 <p className="font-light text-xs">{dateMember}</p>
                             </div>
 
                             <div className='my-2 flex flex-col items-start gap-1'>
-                                <p className='text-gray-600 font-bold text-sm'>Sites</p>
+                                <p className='text-emerald-400 font-semibold text-sm'>Sites</p>
                                 {userProfile?.twitter_username ? (
                                     <a
                                         href={`https://twitter.com/${userProfile.twitter_username}`}
@@ -125,7 +125,7 @@ export const ProfileInfo = ({ userProfile }) => {
 
                                 {userProfile?.email && (
                                     <div className='my-2'>
-                                        <p className='text-gray-600 font-bold text-sm'>Email address</p>
+                                        <p className='text-emerald-400 font-semibold text-sm'>Email address</p>
                                         <p className="font-light text-xs">{userProfile?.email}</p>
                                     </div>
                                 )}
