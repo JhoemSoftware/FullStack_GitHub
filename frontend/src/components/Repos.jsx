@@ -1,4 +1,4 @@
-import { Repo } from './Repo';
+import { Repo } from './index';
 import { TbFaceIdError } from "react-icons/tb";
 
 export const Repos = ({ repos }) => {

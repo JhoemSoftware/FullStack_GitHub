@@ -1,14 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
-// import { HomePage, LoginPage, SignUpPage, ExplorePage, LikesPage } from './pages/';
-// TODO: Empaquetar todas las Importaciones en una línea
-import { HomePage } from './pages/HomePage';
-import { LoginPage } from './pages/LoginPage';
-import { LikesPage } from './pages/LikesPage';
-import { ExplorePage } from './pages/ExplorePage';
-import { SignUpPage } from './pages/SignUpPage';
-import { Sidebar } from './components/Sidebar';
+import { HomePage, LoginPage, SignUpPage, ExplorePage, LikesPage } from './pages/';
+import { Sidebar } from './components/';
 
 export const App = () => {
     return (

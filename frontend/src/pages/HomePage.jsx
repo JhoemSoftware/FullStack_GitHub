@@ -1,10 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
-import { Search } from './../components/Search';
-import { SortRepos } from './../components/SortRepos';
-import { ProfileInfo } from './../components/ProfileInfo';
-import { Repos } from './../components/Repos';
+import { Search, SortRepos, ProfileInfo, Repos, Spinner } from './../components/';
 import { toast } from 'react-hot-toast';
-import { Spinner } from '../components/Spinner';
 
 export const HomePage = () => {
     const [userProfile, setUserProfile] = useState(null);
@@ -12,7 +8,7 @@ export const HomePage = () => {
     const [loading, setLoading] = useState(false);
     const [sortType, setSortType] = useState('recent');
 
-    const getUserProfileRepos = useCallback(async (username = 'jhoemsoftware') => { //AzKalashnikov
+    const getUserProfileRepos = useCallback(async (username = 'jhoemsoftware') => {
         setLoading(true);
         try {
             const userRes = await fetch(`https://api.github.com/users/${username}`);
@@ -50,7 +46,7 @@ export const HomePage = () => {
 
         // console.log(dataUserProfile);
         // console.log(dataReposUser);
-        toast.success(`Hi 👋🏻 ${dataUserProfile.name}`);
+        toast.success(`Hi 👋🏻 ${dataUserProfile.login}`);
 
         setUserProfile(dataUserProfile);
         setRepos(dataReposUser);

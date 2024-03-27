@@ -1,7 +1,7 @@
 import { formatDateMember } from "../utils/utilities";
 import { FaEye } from "react-icons/fa";
 import { RiInformationFill, RiUserFollowFill, RiUserFollowLine } from "react-icons/ri";
-import { FaLocationDot, FaSquareXTwitter, FaLinkedin } from "react-icons/fa6";
+import { FaLocationDot, FaSquareXTwitter } from "react-icons/fa6";
 import { SiGitlfs } from "react-icons/si";
 import { LiaDigitalTachographSolid } from "react-icons/lia";
 import { TfiWorld } from "react-icons/tfi";
