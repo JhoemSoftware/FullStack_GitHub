@@ -42,7 +42,6 @@ export const HomePage = () => {
 
         // console.log(dataUserProfile);
         // console.log(dataReposUser);
-
         toast.success(`Hi 👋🏻 ${dataUserProfile.name}`);
 
         setUserProfile(dataUserProfile);
@@ -50,10 +49,25 @@ export const HomePage = () => {
         setLoading(false)
     }
 
+    const onSort = (sortType = 'recent') => {
+        if (sortType === 'stars') {
+            repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+        } else if (sortType === 'forks') {
+            repos.sort((a, b) => b.forks_count - a.forks_count);
+        } else if (sortType === 'recent') {
+            repos.sort((a, b) => (new Date(b.created_at)) - (new Date(a.created_at)));
+        }
+
+        setSortType(sortType);
+        setRepos([...repos]);
+    }
+
     return (
         <div className="m-4">
-            <Search onSearch={ onSearch } />
-            <SortRepos />
+            <Search onSearch={onSearch} />
+            {
+                repos.length > 0 && <SortRepos sortType={sortType} onSort={onSort} />
+            }
             <div className="flex flex-col gap-4 justify-center items-start lg:flex-row">
                 {
                     loading &&
