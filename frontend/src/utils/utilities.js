@@ -8,10 +8,12 @@ export const formatDateMember = (dateInput = '') => {
 }
 
 export const validateLanguage = (lang) => {
-	const listImages = ['javascript','php','python','c++','c#','css','html','go','java','swift','vue','typescript','shell', 'rust'];
+	const listImages = ['javascript','php','python','c','c++','csharp','css','html','go','java','swift','vue','typescript','shell', 'rust'];
 
     if(lang === null) lang = 'code'
 
+    if(lang === 'c#') lang = 'csharp'
+    
     lang = lang.toLowerCase();
 
     if(!listImages.includes(lang)) lang = 'code'

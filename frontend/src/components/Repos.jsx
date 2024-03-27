@@ -3,7 +3,7 @@ import { TbFaceIdError } from "react-icons/tb";
 
 export const Repos = ({ repos }) => {
     return (
-        <div className="lg:2/3 w-full bg-glass rounded-lg px-8 py-6">
+        <div className="lg:2/3 w-full bg-glass rounded-lg px-12 py-7">
             {
                 repos.length === 0 &&
                 <div className='text-bold text-center flex flex-col items-center gap-1'>
