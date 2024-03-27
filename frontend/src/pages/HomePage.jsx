@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Search } from './../components/Search';
 import { SortRepos } from './../components/SortRepos';
 import { ProfileInfo } from './../components/ProfileInfo';
@@ -12,21 +12,29 @@ export const HomePage = () => {
     const [loading, setLoading] = useState(false);
     const [sortType, setSortType] = useState('recent');
 
-    const getUserProfileRepos = async (username = 'jhoemsoftware') => { //AzKalashnikov
+    const getUserProfileRepos = useCallback(async (username = 'jhoemsoftware') => { //AzKalashnikov
+        setLoading(true);
         try {
             const userRes = await fetch(`https://api.github.com/users/${username}`);
             const dataUserProfile = await userRes.json();
-
-            await new Promise(resolve => setTimeout(resolve, 1200));
-
+            
             const reposRes = await fetch(dataUserProfile.repos_url);
             const dataReposUser = await reposRes.json();
+            
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            setUserProfile(dataUserProfile);
+            dataReposUser.sort((a, b) => (new Date(b.created_at)) - (new Date(a.created_at)));
+            setRepos(dataReposUser);
 
             return { dataUserProfile, dataReposUser }
         } catch (error) {
-            toast.error(`I don't get information ${error.message}`);
+            console.error(error.message)
+            toast.error(`I don't get information for ${username}`);
+        } finally {
+            setLoading(false);
         }
-    }
+    }, []);
 
     useEffect(() => {
         getUserProfileRepos();

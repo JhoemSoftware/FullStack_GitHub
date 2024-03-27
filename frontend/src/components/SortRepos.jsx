@@ -3,6 +3,7 @@ import { GiStarsStack } from "react-icons/gi";
 import { CgGitFork } from "react-icons/cg";
 
 export const SortRepos = ({ onSort, sortType }) => {
+    // TODO: Refactorizar el código del button para no repetir
     return (
         <div className="mb-2 flex justify-center lg:justify-end">
             <button onClick={ () => onSort('recent') } className={`py-2 px-5 me-2 mb-2 text-xs font-medium rounded-lg bg-glass border border-gray-700 outline-none sm:text-sm ${ sortType === 'recent' ? " bg-colored" : "" }`}>
