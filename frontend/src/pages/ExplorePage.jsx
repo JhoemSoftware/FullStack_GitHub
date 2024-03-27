@@ -32,7 +32,7 @@ export const ExplorePage = () => {
             <div className="bg-glass w-3/4 mx-auto p-5 border border-gray-700 flex flex-col items-center gap-3 mb-2">
                 <h1 className="text-xl text-center">Explore Popular Repositories</h1>
                 <div className="flex gap-2 flex-wrap items-center justify-center">
-                    // TODO: Refactor img para no repetir código
+                    {/* TODO: Refactor img para no repetir código */}
                     <img
                         src="./javascript.svg"
                         alt="JS Logo"
