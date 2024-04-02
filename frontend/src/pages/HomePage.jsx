@@ -11,12 +11,15 @@ export const HomePage = () => {
     const getUserProfileRepos = useCallback(async (username = 'jhoemsoftware') => {
         setLoading(true);
         try {
-            const userRes = await fetch(`https://api.github.com/users/${username}`);
-            const dataUserProfile = await userRes.json();
-            
-            const reposRes = await fetch(dataUserProfile.repos_url);
-            const dataReposUser = await reposRes.json();
-            
+            const res = await fetch(`http://localhost:8500/api/users/profile/${username}`, {
+                method: 'GET',
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json'
+                }
+            });
+            const { dataUserProfile, dataReposUser } = await res.json();
+
             await new Promise(resolve => setTimeout(resolve, 1000));
             
             setUserProfile(dataUserProfile);

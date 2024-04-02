@@ -11,12 +11,7 @@ const getUserProfileAndRepositories = async (req = request, res = response) => {
         message: `I don't get information for ${username}`
     });
 
-    return res.status(200).json({
-        title: `Get information from ${username} success`,
-        body: {
-            dataUserProfile, dataReposUser
-        }
-    });
+    return res.status(200).json({ dataUserProfile, dataReposUser });
 }
 
 export default getUserProfileAndRepositories

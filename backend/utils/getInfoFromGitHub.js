@@ -2,6 +2,8 @@ export const getInfoFromGitHub = async (user = 'jhoemsoftware') => {
     try {
         const userRes = await fetch(`https://api.github.com/users/${user}`);
         const dataUserProfile = await userRes.json();
+
+        await new Promise(resolve => setTimeout(resolve, 1000));
         
         const reposRes = await fetch(dataUserProfile.repos_url);
         const dataReposUser = await reposRes.json();
