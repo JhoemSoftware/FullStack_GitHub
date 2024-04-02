@@ -1,7 +1,7 @@
 <p align='center'>
     <img src='./frontend/public/github-1.png' width='300'>
 </p>
-<h1 align='center'>GitHub Likes App</h1>
+<h1 align='center'>GitHub Search Repos & Profiles</h1>
 <div align='center'>
     <img src='./frontend/public/tailwind.png' width='50' height='50'>
     <img src='./frontend/public/react.png' width='50' height='50'>
