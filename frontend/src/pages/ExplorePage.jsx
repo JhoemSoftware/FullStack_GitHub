@@ -12,8 +12,8 @@ export const ExplorePage = () => {
         setLoading(true);
         setRepositories([]);
         try {
-            const res = await fetch(`https://api.github.com/search/repositories?q=language:${language}&sort=stars&order=desc&per_page=10`);
-            const dataRepos = await res.json();
+            const res = await fetch(`http://localhost:8500/api/explore/repositories/${language}`);
+            const { dataRepos } = await res.json();
 
             await new Promise(resolve => setTimeout(resolve, 1000));
 

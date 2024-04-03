@@ -1,10 +1,10 @@
 import { request, response } from "express";
-import { getInfoFromGitHub } from "../utils/getInfoFromGitHub.js";
+import { getInfoUserFromGitHub } from "../utils/getInfoUserFromGitHub.js";
 
 const getUserProfileAndRepositories = async (req = request, res = response) => {
     const { username } = req.params;
 
-    const { dataUserProfile, dataReposUser } = await getInfoFromGitHub(username);
+    const { dataUserProfile, dataReposUser } = await getInfoUserFromGitHub(username);
 
     if (!dataUserProfile) return res.status(500).json({
         title: "ERROR",

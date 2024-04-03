@@ -1,10 +1,8 @@
-export const getInfoFromGitHub = async (user = 'jhoemsoftware') => {
+export const getInfoUserFromGitHub = async (user = 'jhoemsoftware') => {
     try {
         const userRes = await fetch(`https://api.github.com/users/${user}`);
         const dataUserProfile = await userRes.json();
 
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        
         const reposRes = await fetch(dataUserProfile.repos_url);
         const dataReposUser = await reposRes.json();
         
@@ -15,7 +13,9 @@ export const getInfoFromGitHub = async (user = 'jhoemsoftware') => {
             dataReposUser
         }
     } catch (error) {
+        console.clear();
         console.error(error);
+        console.log('Backend Util file 🤓');
         return false;
     }
 }
