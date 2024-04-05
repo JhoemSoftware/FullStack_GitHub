@@ -14,4 +14,4 @@ const getUserProfileAndRepositories = async (req = request, res = response) => {
     return res.status(200).json({ dataUserProfile, dataReposUser });
 }
 
-export default getUserProfileAndRepositories
+export default getUserProfileAndRepositories;
