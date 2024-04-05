@@ -11,6 +11,7 @@ export const App = () => {
             <div className='max-w-5x1 my-5 mx-auto transition-all duration-300 flex-1'>
                 <Routes>
                     <Route path='/' element={ <HomePage /> } />
+                    <Route path='*' element={ <HomePage /> } />
                     <Route path='/login' element={ <LoginPage /> } />
                     <Route path='/signup' element={ <SignUpPage /> } />
                     <Route path='/explore' element={ <ExplorePage /> } />
