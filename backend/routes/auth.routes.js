@@ -1,6 +1,7 @@
 import express from 'express';
 import { request, response } from 'express';
 import passport from 'passport';
+import { ensureAuth } from '../middlewares/ensureAuth.js';
 
 const router = express.Router();
 
@@ -16,7 +17,7 @@ router.get(
     res.redirect(process.env.CLIENT_BASE_URL);
 });
 
-router.get('/check', (req = request, res = response) => req.isAuthenticated() ? res.send({user: req.user}) : res.send({user: null}));
+router.get('/check', ensureAuth, (req = request, res = response) => req.isAuthenticated() ? res.send({user: req.user}) : res.send({user: null}));
 
 router.get('/logout', (req, res) => {
     req.session.destroy((e) => {
