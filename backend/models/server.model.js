@@ -1,10 +1,13 @@
 import express from 'express';
 import cors from 'cors';
+import passport from 'passport';
+import session from 'express-session';
 import dotenv from 'dotenv';
 dotenv.config();
 
 import { connMongoDatabase } from './../settings/config.js';
 import router from './../routes/index.js';
+import './../controllers/passport.js';
 
 export class Server {
     constructor() {
@@ -25,6 +28,11 @@ export class Server {
     middlewares() {
         this.app.use(cors());
         this.app.use(express.json());
+        this.app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
+        // Initialize Passport!  Also use passport.session() middleware, to support
+        // persistent login sessions (recommended).
+        this.app.use(passport.initialize());
+        this.app.use(passport.session());
     }
 
     routes() {
