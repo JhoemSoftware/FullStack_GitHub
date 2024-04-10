@@ -6,7 +6,7 @@ import { MdPersonSearch, MdOutlinePostAdd } from "react-icons/md";
 import { Logout } from "./Logout";
 
 export const Sidebar = () => {
-    const authUser = true;
+    const authUser = false;
     return (
         <aside className="flex flex-col items-center min-w-12 sm:w-16 sticky top-0 left-0 h-screen py-8 overflow-y-auto border-r border-gray-700 bg-glass rounded-none">
             <nav className="h-full flex flex-col items-center gap-3">
