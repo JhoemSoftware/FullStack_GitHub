@@ -8,7 +8,6 @@ export const HomePage = () => {
     const [repos, setRepos] = useState([]);
     const [loading, setLoading] = useState(false);
     const [sortType, setSortType] = useState('recent');
-    const { authUser } = useAuthContext();
 
     const getUserProfileRepos = useCallback(async (username = 'jhoemsoftware') => {
         setLoading(true);
@@ -53,7 +52,7 @@ export const HomePage = () => {
         // console.log(dataUserProfile);
         // console.log(dataReposUser);
 
-        toast.success(`Hi 👋🏻 ${username}`);
+        //toast.success(`Hi 👋🏻 ${username}`);
 
         setUserProfile(dataUserProfile);
         setRepos(dataReposUser);
