@@ -1,15 +1,18 @@
 import { useEffect, useState, useCallback } from 'react';
 import { Search, SortRepos, ProfileInfo, Repos, Spinner } from './../components/';
 import { toast } from 'react-hot-toast';
+import { useAuthContext } from '../context/AuthContext';
 
 export const HomePage = () => {
     const [userProfile, setUserProfile] = useState(null);
     const [repos, setRepos] = useState([]);
     const [loading, setLoading] = useState(false);
     const [sortType, setSortType] = useState('recent');
+    const { authUser } = useAuthContext();
 
     const getUserProfileRepos = useCallback(async (username = 'jhoemsoftware') => {
         setLoading(true);
+        
         try {
             const res = await fetch(`http://localhost:8500/api/users/profile/${username}`, {
                 method: 'GET',
@@ -49,7 +52,8 @@ export const HomePage = () => {
 
         // console.log(dataUserProfile);
         // console.log(dataReposUser);
-        toast.success(`Hi 👋🏻 ${dataUserProfile.login}`);
+
+        toast.success(`Hi 👋🏻 ${username}`);
 
         setUserProfile(dataUserProfile);
         setRepos(dataReposUser);

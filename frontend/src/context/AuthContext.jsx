@@ -1,5 +1,5 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { toast } from "react-hot-toast";
+import { createContext, useContext, useEffect, useState } from 'react';
+import { toast } from 'react-hot-toast';
 
 export const AuthContext = createContext();
 
@@ -18,7 +18,7 @@ export const AuthContextProvider = ({ children }) => {
             try {
                 const res = await fetch("/api/auth/check", { credentials: "include" });
                 const data = await res.json();
-                setAuthUser(data.user); // null or authenticated user object
+                setAuthUser(data.user);
             } catch (error) {
                 toast.error(error.message);
             } finally {
