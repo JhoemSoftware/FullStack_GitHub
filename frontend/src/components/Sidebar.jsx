@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { AiFillGithub } from "react-icons/ai";
 import { RiHome2Fill, RiLoginCircleFill } from "react-icons/ri";
-import { FaHeart } from "react-icons/fa";
 import { MdPersonSearch, MdOutlinePostAdd } from "react-icons/md";
 import { Logout } from "./Logout";
 import { useAuthContext } from "../context/AuthContext";
@@ -15,15 +14,12 @@ export const Sidebar = () => {
                     {/* <img className="h-8" src="./github.svg" alt="Github Logo" /> */}
                     <AiFillGithub size={30} />
                 </Link>
-                <Link to='/' className="transition-colors duration-300 py-2  hover:text-emerald-400">
-                    <RiHome2Fill size={20} />
-                </Link>
                 {
                     authUser && (
                         <>
-                            {/* <Link to='/likes' className="transition-colors duration-300 py-2  hover:text-emerald-400">
-                                <FaHeart size={18} />
-                            </Link> */}
+                            <Link to='/' className="transition-colors duration-300 py-2  hover:text-emerald-400">
+                                <RiHome2Fill size={20} />
+                            </Link>
                             <Link to='/explore' className="transition-colors duration-300 py-2  hover:text-emerald-400">
                                 <MdPersonSearch size={24} />
                             </Link>

@@ -3,6 +3,8 @@ import cors from 'cors';
 import passport from 'passport';
 import session from 'express-session';
 import dotenv from 'dotenv';
+import path from 'path';
+
 dotenv.config();
 
 import { connMongoDatabase } from './../settings/config.js';
@@ -13,8 +15,9 @@ export class Server {
     constructor() {
         this.app = express();
         this.host = 'http://localhost';
-        this.path = '/api';
-        this.port = process.env.PORT || 8800;
+        this.urlPath = '/api';
+        this.port = process.env.PORT || 8500;
+        this.directory = path.resolve();
 
         this.connDB();
         this.middlewares();
@@ -33,16 +36,18 @@ export class Server {
         // persistent login sessions (recommended).
         this.app.use(passport.initialize());
         this.app.use(passport.session());
+        this.app.use(express.static(path.join(this.directory, '/frontend/dist')));
     }
 
     routes() {
-        this.app.use(this.path, router);
+        this.app.use(this.urlPath, router);
+        this.app.get('*', (_, res = express.response) => res.sendFile(path.join(this.directory, 'frontend', 'dist', 'index.html')));
     }
 
     listen() {
         this.app.listen(this.port, () => {
             console.clear();
-            console.log(`Github Backend running in PORT:${this.port} 👍\n🌐 http://localhost:${this.port}${this.path}`);
+            console.log(`Github Backend running in PORT:${this.port} 👍\n🌐 http://localhost:${this.port}${this.urlPath}`);
         });
     }
 }

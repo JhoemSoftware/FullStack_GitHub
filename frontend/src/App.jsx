@@ -1,7 +1,7 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
-import { HomePage, LoginPage, SignUpPage, ExplorePage, LikesPage } from './pages/';
+import { HomePage, LoginPage, SignUpPage, ExplorePage } from './pages/';
 import { Sidebar } from './components/';
 import { useAuthContext } from './context/AuthContext';
 
@@ -21,7 +21,6 @@ export const App = () => {
                     <Route path='/login' element={ !authUser ? <LoginPage /> : <Navigate to={'/'} /> } />
                     <Route path='/signup' element={ !authUser ? <SignUpPage /> : <Navigate to={'/'} /> } />
                     <Route path='/explore' element={ authUser ? <ExplorePage /> : <Navigate to={'/login'} /> } />
-                    <Route path='/likes' element={ authUser ? <LikesPage /> : <Navigate to={'/login'} /> } />
                 </Routes>
                 <Toaster />
             </div>
