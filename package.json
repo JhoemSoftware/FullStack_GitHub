@@ -1,0 +1,25 @@
+{
+    "name": "fullstack_github",
+    "version": "1.0.0",
+    "description": "<p align='center'>\r     <img src='./frontend/public/github-1.png' width='300'>\r </p>\r <h1 align='center'>GitHub Search Repos & Profiles</h1>\r <div align='center'>\r     <img src='./frontend/public/tailwind.png' width='50' height='50'>\r     <img src='./frontend/public/react.png' width='50' height='50'>\r     <img src='./frontend/public/javascript.svg' width='50' height='50'>\r     <img src='./frontend/public/nodejs.png' width='50' height='50'>\r     <img src='./frontend/public/mongo.svg' width='50' height='50'>\r </div>",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon backend/index.js"
+    },
+    "type": "module",
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "nodemon": "^3.1.0"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2",
+        "express-session": "^1.18.0",
+        "mongoose": "^8.3.1",
+        "passport": "^0.7.0",
+        "passport-github2": "^0.1.12"
+    }
+}
