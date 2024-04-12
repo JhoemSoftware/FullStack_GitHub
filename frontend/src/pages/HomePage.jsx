@@ -1,7 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import { Search, SortRepos, ProfileInfo, Repos, Spinner } from './../components/';
 import { toast } from 'react-hot-toast';
-import { useAuthContext } from '../context/AuthContext';
 
 export const HomePage = () => {
     const [userProfile, setUserProfile] = useState(null);
@@ -13,7 +12,7 @@ export const HomePage = () => {
         setLoading(true);
         
         try {
-            const res = await fetch(`http://localhost:8500/api/users/profile/${username}`, {
+            const res = await fetch(`/api/users/profile/${username}`, {
                 method: 'GET',
                 headers: {
                     'Access-Control-Allow-Origin': '*',

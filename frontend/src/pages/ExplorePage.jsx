@@ -1,24 +1,34 @@
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { Spinner, Repos } from './../components/';
+import { useAuthContext } from '../context/AuthContext';
 
 export const ExplorePage = () => {
-    // 
     const [loading, setLoading] = useState(false);
     const [repositories, setRepositories] = useState([]);
     const [selectedLanguage, setSelectedLanguage] = useState('');
+    const { authUser } = useAuthContext();
 
     const exploreRepos = async (language = '') => {
         setLoading(true);
         setRepositories([]);
         try {
-            const res = await fetch(`http://localhost:8500/api/explore/repositories/${language}`);
-            const { dataRepos } = await res.json();
+            if(authUser) {
+                const res = await fetch(`/api/explore/repositories/${language}`, {
+                    method: 'GET',
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                        'Content-Type': 'application/json'
+                    }
+                });
 
-            await new Promise(resolve => setTimeout(resolve, 1000));
+                const { dataRepos } = await res.json();
 
-            setRepositories(dataRepos.items);
-            setSelectedLanguage(language)
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                setRepositories(dataRepos.items);
+                setSelectedLanguage(language);
+            }
         } catch (error) {
             console.error(error.message)
             toast.error(`I don't get information for ${language}`);

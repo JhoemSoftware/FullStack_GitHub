@@ -10,8 +10,6 @@ export const App = () => {
 
     if(loading) return null;
 
-	console.log("Authenticated user:", authUser);
-    
     return (
         <div className="flex text-white">
             <Sidebar />
