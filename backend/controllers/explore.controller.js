@@ -3,7 +3,7 @@ import { getInfoReposFromGitHub } from "../utils/getInfoReposFromGitHub.js";
 
 const getReposExplore = async (req = request, res = response) => {
     const { lang } = req.params;
-
+    
     const { dataRepos } = await getInfoReposFromGitHub(lang);
 
     if (!dataRepos) return res.status(500).json({
