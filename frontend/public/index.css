@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    background: linear-gradient(to bottom right, rgba(0,0,0,.9), rgba(0,0,0,.4)), url('./card.webp');
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, .9), rgba(0, 0, 0, .4)), url('card.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -29,7 +29,7 @@ body {
 
 @layer components {
     .bg-glass {
-        @apply rounded p-2 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-5 transition-all duration-300 text-white  hover:bg-indigo-600/35
+        @apply rounded p-2 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-5 transition-all duration-300 text-white hover:bg-indigo-600/35
     }
 
     .bg-colored {
