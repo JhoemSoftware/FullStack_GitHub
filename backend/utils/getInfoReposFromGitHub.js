@@ -9,7 +9,7 @@ export const getInfoReposFromGitHub = async (lang = '') => {
     } catch (error) {
         console.clear();
         console.error(error);
-        console.log('Backend Util file 🤓');
+        console.log('File Error => getInfoReposFromGitHub 🤓');
         return false;
     }
 }

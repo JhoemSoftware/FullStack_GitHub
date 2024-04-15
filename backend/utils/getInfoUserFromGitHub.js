@@ -15,7 +15,7 @@ export const getInfoUserFromGitHub = async (user = 'jhoemsoftware') => {
     } catch (error) {
         console.clear();
         console.error(error);
-        console.log('Backend Util file 🤓');
+        console.log('File Error => getInfoUserFromGitHub 🤓');
         return false;
     }
 }
