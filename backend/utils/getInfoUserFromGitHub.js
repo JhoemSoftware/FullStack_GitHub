@@ -7,6 +7,7 @@ export const getInfoUserFromGitHub = async (user = 'jhoemsoftware') => {
         if(!dataUserProfile) return false;
         
         console.log('Get info user success 🥳');
+        console.log(dataUserProfile);
         
         const reposRes = await fetch(dataUserProfile.repos_url);
         await new Promise(resolve => setTimeout(resolve, 1000));
