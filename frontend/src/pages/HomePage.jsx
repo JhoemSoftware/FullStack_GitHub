@@ -1,17 +1,14 @@
 import { useEffect, useState, useCallback } from 'react';
 import { Search, SortRepos, ProfileInfo, Repos, Spinner } from './../components/';
 import { toast } from 'react-hot-toast';
-import { useAuthContext } from './context/AuthContext';
 
 export const HomePage = () => {
     const [userProfile, setUserProfile] = useState(null);
     const [repos, setRepos] = useState([]);
     const [loading, setLoading] = useState(false);
     const [sortType, setSortType] = useState('recent');
-    const { authUser } = useAuthContext();
 
-    if(authUser) toast.success(`Hi 👋🏻 ${authUser.login}`);
-
+    
     const getUserProfileRepos = useCallback(async (username = 'jhoemsoftware') => {
         setLoading(true);
         
