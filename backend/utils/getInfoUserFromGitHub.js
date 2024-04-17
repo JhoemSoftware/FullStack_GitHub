@@ -6,12 +6,23 @@ export const getInfoUserFromGitHub = async (user = 'jhoemsoftware') => {
             }
         });
         const dataUserProfile = await userRes.json();
+
+        console.clear();
         console.log(dataUserProfile)
+        
         if(!dataUserProfile) return false;
         
-        const reposRes = await fetch(dataUserProfile.repos_url);
-        const dataReposUser = await reposRes.json();        
+        const reposRes = await fetch(dataUserProfile.repos_url, {
+            headers: {
+                authorization: `token ${process.env.TOKEN_GITHUB}`
+            }
+        });
 
+        const dataReposUser = await reposRes.json();        
+        
+        console.clear();
+        console.log(dataReposUser);
+        
         (!dataReposUser) ? dataReposUser = [] : dataReposUser.sort((a, b) => (new Date(b.created_at)) - (new Date(a.created_at)));
         
         return {
