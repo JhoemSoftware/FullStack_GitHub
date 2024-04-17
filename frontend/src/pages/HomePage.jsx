@@ -21,7 +21,7 @@ export const HomePage = () => {
             });
             const { dataUserProfile, dataReposUser } = await res.json();
 
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            await new Promise(resolve => setTimeout(resolve, 1500));
             
             setUserProfile(dataUserProfile);
             dataReposUser.sort((a, b) => (new Date(b.created_at)) - (new Date(a.created_at)));
@@ -30,7 +30,7 @@ export const HomePage = () => {
             return { dataUserProfile, dataReposUser }
         } catch (error) {
             console.error(error.message)
-            toast.error(`I don't get information for ${username}`);
+            toast.error(`Error trying to get information for ${username}`);
         } finally {
             setLoading(false);
         }
