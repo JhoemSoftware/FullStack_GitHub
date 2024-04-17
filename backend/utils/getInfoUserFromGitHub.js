@@ -7,8 +7,8 @@ export const getInfoUserFromGitHub = async (user = 'jhoemsoftware') => {
         
         const reposRes = await fetch(dataUserProfile.repos_url);
         const dataReposUser = await reposRes.json();
-        
-        dataReposUser.sort((a, b) => (new Date(b.created_at)) - (new Date(a.created_at)));
+
+        (!dataReposUser) ? dataReposUser = [] : dataReposUser.sort((a, b) => (new Date(b.created_at)) - (new Date(a.created_at)));
         
         console.log('Get info repos user success 🥳');
         
