@@ -1,5 +1,5 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
+import { Toaster, toast } from 'react-hot-toast';
 
 import { HomePage, LoginPage, SignUpPage, ExplorePage } from './pages/';
 import { Sidebar } from './components/';
@@ -9,6 +9,8 @@ export const App = () => {
     const { authUser, loading } = useAuthContext();
 
     if(loading) return null;
+
+    if(authUser) toast.success(`Hi 👋🏻 ${authUser.login}`);
 
     return (
         <div className="flex text-white">
