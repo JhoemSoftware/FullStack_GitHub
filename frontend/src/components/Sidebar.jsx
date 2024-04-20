@@ -15,10 +15,12 @@ export const Sidebar = () => {
                     <AiFillGithub size={30} />
                 </Link>
                 <Link to='/' className="transition-colors duration-300 py-2  hover:text-emerald-400">
-                    <RiHome2Fill size={20} />
+                    <RiHome2Fill size={20} className="mx-auto" />
+                    <small className="text-xs">Home</small>
                 </Link>
-                <Link to='/explore' className="transition-colors duration-300 py-2  hover:text-emerald-400">
-                    <MdPersonSearch size={24} />
+                <Link to='/explore' className="transition-colors duration-300 py-2 hover:text-emerald-400">
+                    <MdPersonSearch size={24} className="mx-auto" />
+                    <small className="text-xs">Explore</small>
                 </Link>
                 {
                     authUser && (
@@ -33,10 +35,12 @@ export const Sidebar = () => {
                     !authUser && (
                         <>
                             <Link to='/login' className="transition-colors duration-300 py-2  hover:text-emerald-400">
-                                <RiLoginCircleFill size={20} />
+                                <RiLoginCircleFill size={20} className="mx-auto" />
+                                <small className="text-xs">Login</small>
                             </Link>
                             <Link to='/signup' className="transition-colors duration-300 py-2  hover:text-emerald-400">
-                                <MdOutlinePostAdd size={20} />
+                                <MdOutlinePostAdd size={20} className="mx-auto" />
+                                <small className="text-xs">Sign Up</small>
                             </Link>
                         </>
                     )
