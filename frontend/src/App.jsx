@@ -18,7 +18,8 @@ export const App = () => {
                     <Route path='/' element={ <HomePage /> } />
                     <Route path='/login' element={ !authUser ? <LoginPage /> : <Navigate to={'/'} /> } />
                     <Route path='/signup' element={ !authUser ? <SignUpPage /> : <Navigate to={'/'} /> } />
-                    <Route path='/explore' element={ authUser ? <ExplorePage /> : <Navigate to={'/login'} /> } />
+                    <Route path='/explore' element={ <ExplorePage /> } />
+                    {/* <Route path='/explore' element={ authUser ? <ExplorePage /> : <Navigate to={'/login'} /> } /> */}
                 </Routes>
                 <Toaster />
             </div>

@@ -17,12 +17,12 @@ export const Sidebar = () => {
                 <Link to='/' className="transition-colors duration-300 py-2  hover:text-emerald-400">
                     <RiHome2Fill size={20} />
                 </Link>
+                <Link to='/explore' className="transition-colors duration-300 py-2  hover:text-emerald-400">
+                    <MdPersonSearch size={24} />
+                </Link>
                 {
                     authUser && (
                         <>
-                            <Link to='/explore' className="transition-colors duration-300 py-2  hover:text-emerald-400">
-                                <MdPersonSearch size={24} />
-                            </Link>
                             <Link to='/' className="mt-auto">
                                 <Logout />
                             </Link>

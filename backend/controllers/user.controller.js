@@ -11,6 +11,8 @@ const getUserProfileAndRepositories = async (req = request, res = response) => {
         message: `Error trying to get information for ${username}`
     });
 
+    //TODO: Here call function insert username on database
+
     return res.status(200).json({ dataUserProfile, dataReposUser });
 }
 
