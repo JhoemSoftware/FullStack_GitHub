@@ -7,8 +7,7 @@ export const getInfoUserFromGitHub = async (user = 'jhoemsoftware') => {
         });
         const dataUserProfile = await userRes.json();
 
-        console.clear();
-        console.log(dataUserProfile)
+        //console.log(dataUserProfile)
         
         if(!dataUserProfile) return false;
         
@@ -20,8 +19,7 @@ export const getInfoUserFromGitHub = async (user = 'jhoemsoftware') => {
 
         const dataReposUser = await reposRes.json();        
         
-        console.clear();
-        console.log(dataReposUser);
+        //console.log(dataReposUser);
         
         (!dataReposUser) ? dataReposUser = [] : dataReposUser.sort((a, b) => (new Date(b.created_at)) - (new Date(a.created_at)));
         
